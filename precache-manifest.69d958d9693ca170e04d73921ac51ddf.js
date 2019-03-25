@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "fb446fd525c5e684bdd0",
-    "url": "/river/static/js/main.0cd37d77.chunk.js"
+    "revision": "13fa1c39720f4ab5e16e",
+    "url": "/river/static/js/main.ec81b5f4.chunk.js"
   },
   {
     "revision": "91603d566aec68d84843",
     "url": "/river/static/js/runtime~main.ca002233.js"
   },
   {
-    "revision": "3ce087f388a9a4b738e3",
+    "revision": "e54e80dc28489b98b1d4",
     "url": "/river/static/css/2.fea37b06.chunk.css"
   },
   {
-    "revision": "3ce087f388a9a4b738e3",
-    "url": "/river/static/js/2.4ee78474.chunk.js"
+    "revision": "e54e80dc28489b98b1d4",
+    "url": "/river/static/js/2.1622fc93.chunk.js"
   },
   {
     "revision": "c56bcdfdad8539e868441f0648c2bca5",
@@ -144,7 +144,7 @@ self.__precacheManifest = [
     "url": "/river/static/media/slick.f97e3bbf.svg"
   },
   {
-    "revision": "cddd5ad78072b2a7eb0eba008212ed3f",
+    "revision": "a00164bb23a3287a5515704927c4812b",
     "url": "/river/index.html"
   }
 ];
