@@ -1,23 +1,27 @@
 self.__precacheManifest = [
   {
-    "revision": "13fa1c39720f4ab5e16e",
-    "url": "/river/static/js/main.ec81b5f4.chunk.js"
+    "revision": "c472c6063deb50cada31",
+    "url": "/river/static/js/main.ac588935.chunk.js"
   },
   {
     "revision": "91603d566aec68d84843",
     "url": "/river/static/js/runtime~main.ca002233.js"
   },
   {
-    "revision": "e54e80dc28489b98b1d4",
+    "revision": "85ab2082eaa7bff27f9f",
     "url": "/river/static/css/2.fea37b06.chunk.css"
   },
   {
-    "revision": "e54e80dc28489b98b1d4",
-    "url": "/river/static/js/2.1622fc93.chunk.js"
+    "revision": "85ab2082eaa7bff27f9f",
+    "url": "/river/static/js/2.5cc8003b.chunk.js"
   },
   {
     "revision": "c56bcdfdad8539e868441f0648c2bca5",
     "url": "/river/static/media/features3.c56bcdfd.png"
+  },
+  {
+    "revision": "bfdb98afe650f9ba92e83b0c5cf54acf",
+    "url": "/river/static/media/wavesBgBlack.bfdb98af.png"
   },
   {
     "revision": "89ebdc71e32e98d42620c55acd5fd435",
@@ -34,10 +38,6 @@ self.__precacheManifest = [
   {
     "revision": "83b9a610a57243171336a08e89acc9b8",
     "url": "/river/static/media/noiseBg.83b9a610.png"
-  },
-  {
-    "revision": "bfdb98afe650f9ba92e83b0c5cf54acf",
-    "url": "/river/static/media/wavesBgBlack.bfdb98af.png"
   },
   {
     "revision": "ebad1f6ac1b317b8600e44c2a652c4c4",
@@ -78,6 +78,18 @@ self.__precacheManifest = [
   {
     "revision": "b81c54d352aa28e98e56ba63bd44e690",
     "url": "/river/static/media/icon-btn-slider.b81c54d3.svg"
+  },
+  {
+    "revision": "c35f25f604ce6578b033b8aed45e97ac",
+    "url": "/river/static/media/icon-btn-grid.c35f25f6.svg"
+  },
+  {
+    "revision": "521128b740d2c0e57bf757600480ca28",
+    "url": "/river/static/media/icon-range.521128b7.svg"
+  },
+  {
+    "revision": "6b1a6104055c1f7007c55aa40651e202",
+    "url": "/river/static/media/icon-link-more-white.6b1a6104.svg"
   },
   {
     "revision": "f90e0282dac8f869d610ab0ae0915fa3",
@@ -128,12 +140,44 @@ self.__precacheManifest = [
     "url": "/river/static/media/service-cafe-img.170bfe09.png"
   },
   {
-    "revision": "ced611daf7709cc778da928fec876475",
-    "url": "/river/static/media/slick.ced611da.eot"
+    "revision": "ad0fff9a5aaceb007e32d52f54b28c04",
+    "url": "/river/static/media/card-vip-bg.ad0fff9a.png"
   },
   {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/river/static/media/slick.b7c9e1e4.woff"
+    "revision": "b5b517513e75c377bc2aa2ba08a4691e",
+    "url": "/river/static/media/card-vip-img.b5b51751.png"
+  },
+  {
+    "revision": "ebf7ee0fc71e32c5537e8f5f9757905a",
+    "url": "/river/static/media/card-standart.ebf7ee0f.png"
+  },
+  {
+    "revision": "c7440b6cd02f531ce47c0bc355c747f7",
+    "url": "/river/static/media/card-junior.c7440b6c.png"
+  },
+  {
+    "revision": "55cc791af5fd1fac178608a3a61a7ebf",
+    "url": "/river/static/media/card-children.55cc791a.png"
+  },
+  {
+    "revision": "771a13e1107a3442b5a4d2b49282fc8d",
+    "url": "/river/static/media/wa-logo.771a13e1.svg"
+  },
+  {
+    "revision": "7a403ac5db2af23368c7d294b9659513",
+    "url": "/river/static/media/contact-img.7a403ac5.jpg"
+  },
+  {
+    "revision": "338289e2bed0e2242edb704954395300",
+    "url": "/river/static/media/logo.338289e2.svg"
+  },
+  {
+    "revision": "bcf56072f8ea1d243cc01bd6a75a0e16",
+    "url": "/river/static/media/icon-phone.bcf56072.svg"
+  },
+  {
+    "revision": "0f93aef25f4d866c4ed888eab0d3d2dd",
+    "url": "/river/static/media/icon-menu-text.0f93aef2.svg"
   },
   {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
@@ -144,7 +188,15 @@ self.__precacheManifest = [
     "url": "/river/static/media/slick.f97e3bbf.svg"
   },
   {
-    "revision": "a00164bb23a3287a5515704927c4812b",
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/river/static/media/slick.ced611da.eot"
+  },
+  {
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/river/static/media/slick.b7c9e1e4.woff"
+  },
+  {
+    "revision": "c58ede06ffb7b74649dc7bf3e51b490c",
     "url": "/river/index.html"
   }
 ];
