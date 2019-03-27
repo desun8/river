@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "bd79ad9a2705c98d9cd6",
-    "url": "/river/static/js/main.1130ed6a.chunk.js"
+    "revision": "5703192e1c4ba762c08e",
+    "url": "/river/static/js/main.6ea622f7.chunk.js"
   },
   {
     "revision": "91603d566aec68d84843",
@@ -188,15 +188,15 @@ self.__precacheManifest = [
     "url": "/river/static/media/slick.b7c9e1e4.woff"
   },
   {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/river/static/media/slick.d41f55a7.ttf"
-  },
-  {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
     "url": "/river/static/media/slick.f97e3bbf.svg"
   },
   {
-    "revision": "57e77f33b2b040cf9cde1c2d62a76768",
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/river/static/media/slick.d41f55a7.ttf"
+  },
+  {
+    "revision": "1df08333d6ab42b0ca747a6612411317",
     "url": "/river/index.html"
   }
 ];
