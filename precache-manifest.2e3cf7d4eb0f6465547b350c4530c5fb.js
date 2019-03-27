@@ -196,7 +196,7 @@ self.__precacheManifest = [
     "url": "/river/static/media/slick.f97e3bbf.svg"
   },
   {
-    "revision": "e97dbf9c71d97ddf117ec5ceece4bcab",
+    "revision": "e6109ba9c5777666c1b57d93ff8e3b23",
     "url": "/river/index.html"
   }
 ];
