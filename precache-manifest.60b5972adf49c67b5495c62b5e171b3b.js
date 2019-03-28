@@ -1,19 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "a33e40fce5175a044d0b",
-    "url": "/river/static/js/main.d885c9dc.chunk.js"
+    "revision": "2420545e158a850c5800",
+    "url": "/river/static/js/main.d203cb0a.chunk.js"
   },
   {
     "revision": "91603d566aec68d84843",
     "url": "/river/static/js/runtime~main.ca002233.js"
   },
   {
-    "revision": "85ab2082eaa7bff27f9f",
+    "revision": "98f865ef86e300bcd3c0",
     "url": "/river/static/css/2.fea37b06.chunk.css"
   },
   {
-    "revision": "85ab2082eaa7bff27f9f",
-    "url": "/river/static/js/2.5cc8003b.chunk.js"
+    "revision": "98f865ef86e300bcd3c0",
+    "url": "/river/static/js/2.2b6ebbe0.chunk.js"
   },
   {
     "revision": "c56bcdfdad8539e868441f0648c2bca5",
@@ -28,12 +28,12 @@ self.__precacheManifest = [
     "url": "/river/static/media/icon-link-more.89ebdc71.svg"
   },
   {
-    "revision": "7f68c74696e91c8aead43386525fca83",
-    "url": "/river/static/media/special-banda.7f68c746.png"
-  },
-  {
     "revision": "5926bb9bf9c0c786c9dd9e3dc603593d",
     "url": "/river/static/media/grey_bg.5926bb9b.png"
+  },
+  {
+    "revision": "7f68c74696e91c8aead43386525fca83",
+    "url": "/river/static/media/special-banda.7f68c746.png"
   },
   {
     "revision": "83b9a610a57243171336a08e89acc9b8",
@@ -46,6 +46,14 @@ self.__precacheManifest = [
   {
     "revision": "02af0b80bb5cc1094245d842db13a4ec",
     "url": "/river/static/media/logoWord.02af0b80.svg"
+  },
+  {
+    "revision": "bcf56072f8ea1d243cc01bd6a75a0e16",
+    "url": "/river/static/media/icon-phone.bcf56072.svg"
+  },
+  {
+    "revision": "4af6df5595d2182115d823bb078158fe",
+    "url": "/river/static/media/icon-freeze.4af6df55.svg"
   },
   {
     "revision": "b915f896986819a05aa9c1f1923ce8c2",
@@ -172,10 +180,6 @@ self.__precacheManifest = [
     "url": "/river/static/media/logo.338289e2.svg"
   },
   {
-    "revision": "bcf56072f8ea1d243cc01bd6a75a0e16",
-    "url": "/river/static/media/icon-phone.bcf56072.svg"
-  },
-  {
     "revision": "0f93aef25f4d866c4ed888eab0d3d2dd",
     "url": "/river/static/media/icon-menu-text.0f93aef2.svg"
   },
@@ -196,7 +200,7 @@ self.__precacheManifest = [
     "url": "/river/static/media/slick.f97e3bbf.svg"
   },
   {
-    "revision": "e6109ba9c5777666c1b57d93ff8e3b23",
+    "revision": "fe3b9bd8bdd7d41d5b4443296734332f",
     "url": "/river/index.html"
   }
 ];
