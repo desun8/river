@@ -8,6 +8,10 @@ const Button = styled.button`
   bottom: 30px;
   background-color: transparent;
   border: none;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const ArrowNext = styled(Button)`

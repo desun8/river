@@ -11,6 +11,13 @@ import { BtnNext, BtnPrev } from "../NavBtnFullpage";
 import moveTitle from "../../utils/moveTitle";
 
 import SliderImages from "./images";
+import {
+  ImageBgAnimation,
+  ImageFrontAnimation,
+  ImageFrontAnimationWiFiLg,
+  ImageFrontAnimationWiFiMd,
+  ImageFrontAnimationWiFiSm
+} from "./animation";
 
 const data = [
   {
@@ -55,46 +62,52 @@ const data = [
   }
 ];
 
-const sliderItems = data.map((elm, index) => {
-  switch (index) {
-    case 0:
-    case 2:
-      return (
-        <SliderItem key={elm.id} {...elm}>
-          <img className="bgImg" src={SliderImages[index].bg} alt="" />
-          <img
-            className={index === 0 ? "imgSlide1" : "imgSlide3"}
-            src={SliderImages[index].img}
-            alt=""
-          />
-        </SliderItem>
-      );
+// const sliderItems = data.map((elm, index) => {
+//   switch (index) {
+//     case 0:
+//     case 2:
+//       return (
+//         <SliderItem key={elm.id} {...elm}>
+//           <img className="bgImg" src={SliderImages[index].bg} alt="" />
+//           <img
+//             className={index === 0 ? "imgSlide1" : "imgSlide3"}
+//             src={SliderImages[index].img}
+//             alt=""
+//           />
+//         </SliderItem>
+//       );
 
-    case 1:
-      return (
-        <SliderItem key={elm.id} {...elm}>
-          <img className="imgSlide2-1" src={SliderImages[index].img1} alt="" />
-          <img className="imgSlide2-2" src={SliderImages[index].img2} alt="" />
-          <img className="imgSlide2-3" src={SliderImages[index].img3} alt="" />
-        </SliderItem>
-      );
+//     case 1:
+//       return (
+//         <SliderItem key={elm.id} {...elm}>
+//           <img className="imgSlide2-1" src={SliderImages[index].img1} alt="" />
+//           <img className="imgSlide2-2" src={SliderImages[index].img2} alt="" />
+//           <img className="imgSlide2-3" src={SliderImages[index].img3} alt="" />
+//         </SliderItem>
+//       );
 
-    case 3:
-    case 4:
-      return (
-        <SliderItem key={elm.id} {...elm}>
-          <img className="bgImg" src={SliderImages[index].bg} alt="" />
-        </SliderItem>
-      );
+//     case 3:
+//     case 4:
+//       return (
+//         <SliderItem key={elm.id} {...elm}>
+//           <img className="bgImg" src={SliderImages[index].bg} alt="" />
+//         </SliderItem>
+//       );
 
-    default:
-      break;
-  }
-});
+//     default:
+//       break;
+//   }
+// });
 
 const Service = props => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState(0);
+  const [animationStatus, setAnimationStatus] = useState([
+    false,
+    false,
+    false,
+    false
+  ]);
 
   useEffect(() => {
     moveTitle(
@@ -102,13 +115,13 @@ const Service = props => {
       totalSliders,
       currentSlide,
       prevSlide,
-      isLastSlideIndex(currentSlide, totalSliders),
+      isLastSlideIndex(currentSlide, totalSliders)
     );
   }, [currentSlide, prevSlide]);
 
   let slider = null;
   let elmTitle;
-  const totalSliders = sliderItems.length - 1;
+  const totalSliders = data.length - 1;
 
   // fullpage.js methods
   const setAllowScrolling = props.fullpage
@@ -123,7 +136,7 @@ const Service = props => {
   const settings = {
     infinite: false,
     dots: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     appendDots: dots => <CustomDots>{dots}</CustomDots>,
@@ -131,6 +144,13 @@ const Service = props => {
     beforeChange: (oldIndex, newIndex) => {
       setPrevSlide(oldIndex);
       setCurrentSlide(newIndex);
+    },
+    afterChange: newIndex => {
+      setAnimationStatus(
+        animationStatus.map((el, index) =>
+          index === newIndex - 1 ? true : false
+        )
+      );
     }
   };
 
@@ -144,7 +164,9 @@ const Service = props => {
       slider.slickNext();
 
       // Активируем прокрутку fullpage
-      console.log(`prev: ${prevSlide},curr: ${currentSlide}, total: ${totalSliders}`)
+      console.log(
+        `prev: ${prevSlide},curr: ${currentSlide}, total: ${totalSliders}`
+      );
       if (isLastSlideIndex(currentSlide, totalSliders)) {
         setAllowScrolling(true);
       }
@@ -164,7 +186,102 @@ const Service = props => {
         Индивидуально для вас
       </SliderTitle>
       <Slider ref={ref => (slider = ref)} {...settings}>
-        {sliderItems}
+        {data.map((elm, index) => {
+          switch (index) {
+            case 0:
+            case 2:
+              return (
+                <SliderItem
+                  key={elm.id}
+                  isPlay={
+                    index === 0 ? props.isCurrent : animationStatus[index - 1]
+                  }
+                  {...elm}
+                >
+                  <ImageBgAnimation
+                    pose={
+                      index === 0 && props.isCurrent
+                        ? "visible"
+                        : animationStatus[index - 1]
+                        ? "visible"
+                        : "hidden"
+                    }
+                    className="bgImg"
+                    src={SliderImages[index].bg}
+                    alt=""
+                  />
+                  <ImageFrontAnimation
+                    pose={
+                      index === 0 && props.isCurrent
+                        ? "visible"
+                        : animationStatus[index - 1]
+                        ? "visible"
+                        : "hidden"
+                    }
+                    className={index === 0 ? "imgSlide1" : "imgSlide3"}
+                    src={SliderImages[index].img}
+                    alt=""
+                  />
+                </SliderItem>
+              );
+
+            case 1:
+              return (
+                <SliderItem
+                  isPlay={animationStatus[index - 1]}
+                  key={elm.id}
+                  {...elm}
+                >
+                  <ImageBgAnimation
+                    pose={animationStatus[index - 1] ? "visible" : "hidden"}
+                    className="imgSlide2-1"
+                    src={SliderImages[index].img1}
+                    alt=""
+                  />
+                  <div className="imgSlide2-2">
+                    <ImageFrontAnimationWiFiLg
+                      pose={animationStatus[index - 1] ? "visible" : "hidden"}
+                      bgImg={SliderImages[index].img2}
+                    />
+                    <ImageFrontAnimationWiFiMd
+                      pose={animationStatus[index - 1] ? "visible" : "hidden"}
+                      bgImg={SliderImages[index].img2}
+                    />
+                    <ImageFrontAnimationWiFiSm
+                      pose={animationStatus[index - 1] ? "visible" : "hidden"}
+                      bgImg={SliderImages[index].img2}
+                    />
+                  </div>
+                  <ImageBgAnimation
+                    pose={animationStatus[index - 1] ? "visible" : "hidden"}
+                    className="imgSlide2-3"
+                    src={SliderImages[index].img3}
+                    alt=""
+                  />
+                </SliderItem>
+              );
+
+            case 3:
+            case 4:
+              return (
+                <SliderItem
+                  isPlay={animationStatus[index - 1]}
+                  key={elm.id}
+                  {...elm}
+                >
+                  <ImageBgAnimation
+                    pose={animationStatus[index - 1] ? "visible" : "hidden"}
+                    className="bgImg"
+                    src={SliderImages[index].bg}
+                    alt=""
+                  />
+                </SliderItem>
+              );
+
+            default:
+              break;
+          }
+        })}
       </Slider>
       <BtnNext name={props.nextBlockName} toDown={moveSectionDown} />
       <BtnPrev toUp={moveSectionUp} />

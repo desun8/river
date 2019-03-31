@@ -17,4 +17,15 @@ const DecorateBorder = styled.div`
   border-bottom-right-radius: ${props => (props.isOdd ? "2px" : "0")};
 `;
 
+export const DecorateBorderLeft = styled.div`
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-left: ${borderStyle};
+  border-bottom: ${borderStyle};
+  border-bottom-left-radius: ${borderStyle};
+`;
+
 export default DecorateBorder;

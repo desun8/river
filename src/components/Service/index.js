@@ -1,7 +1,18 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 
-import { Wrapper, MainTitle, ServiceList, ButtonToSlider } from "./styled";
+import {
+  Wrapper,
+  MainTitle,
+  ServiceList,
+  ButtonToSlider,
+  InnerWrapper,
+  ButtonToList,
+  SliderControl,
+  SliderRange,
+  ListWrapper,
+  SliderWrapper
+} from "./styled";
 import ListItem from "./ListItem";
 
 import { BtnNext, BtnPrev } from "../Home/NavBtnFullpage";
@@ -22,6 +33,7 @@ import spaImg from "../../img/service-spa-img.png";
 import cafe from "../../img/service-cafe.jpg";
 import cafeBg from "../../img/service-cafe-bg.png";
 import cafeImg from "../../img/service-cafe-img.png";
+import { hidden } from "ansi-colors";
 
 const data = [
   {
@@ -80,7 +92,7 @@ const data = [
   }
 ];
 
-const serviceListItems = data.map(elm => <ListItem key={elm.id} {...elm} />);
+// const serviceListItems = data.map(elm => <ListItem key={elm.id} {...elm} />);
 
 const serviceSliderItems = data.map(elm => (
   <SliderItem key={elm.id} {...elm}>
@@ -94,6 +106,7 @@ const Service = props => {
   const [show, setShow] = useState("list");
 
   let slider = null;
+  let inputRange;
 
   // fullpage.js methods
   const setAllowScrolling = props.fullpage
@@ -107,8 +120,8 @@ const Service = props => {
   // параметры слайдера
   const settings = {
     infinite: false,
-    dots: true,
-    speed: 500,
+    // dots: true,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     // appendDots: dots => <CustomDots>{dots}</CustomDots>,
@@ -119,57 +132,77 @@ const Service = props => {
     }
   };
 
-  // const handleClick = () => {
-  //   setShow("slider");
-  // };
+  const handleClickGoToSlide = (index, dontAnimate = true) => {
+    if (slider) {
+      slider.slickGoTo(index, dontAnimate);
+      inputRange.value = indexToValue(index);
+      setShow("slider");
+      console.log("go to");
+    }
+  };
 
-  const showThis =
-    show === "list" ? (
-      <ServiceList>{serviceListItems}</ServiceList>
-    ) : (
-      <Slider ref={ref => (slider = ref)} {...settings}>
-        {serviceSliderItems}
-      </Slider>
-    );
+  const serviceListItems = data.map((elm, index) => (
+    <ListItem
+      key={elm.id}
+      onClick={() => handleClickGoToSlide(index)}
+      {...elm}
+    />
+  ));
+
+  // const sliderLength = serviceListItems.length - 1;
+
+  const indexToValue = curr => {
+    switch (curr) {
+      case 0:
+        return 0;
+      case 1:
+        return 350;
+      case 2:
+        return 650;
+      case 3:
+        return 1000;
+      default:
+        break;
+    }
+  };
+
+  const valueToIndex = curr => {
+    if (curr <= 350 / 2) return 0;
+    if (curr > 350 / 2 && curr <= 500) return 1;
+    if (curr > 500 && curr <= 350 / 2 + 650) return 2;
+    if (curr > 1000 - 350 / 2) return 3;
+  };
 
   return (
     <Wrapper className={props.isHome ? "section" : ""}>
       <MainTitle>Услуги</MainTitle>
+      <InnerWrapper>
+  
+        <ListWrapper pose={show === "list" ? "visible" : "hidden"}>
+          <ServiceList>{serviceListItems}</ServiceList>
+          <ButtonToSlider onClick={() => setShow("slider")}>
+            Слайдер
+          </ButtonToSlider>
+        </ListWrapper>
 
-      <ServiceList className={show === "list" ? "" : "hidden"}>
-        {serviceListItems}
-      </ServiceList>
-      <ButtonToSlider
-        className={show === "list" ? "" : "hidden"}
-        onClick={() => setShow("slider")}
-      >
-        Слайдер
-      </ButtonToSlider>
+        <SliderWrapper pose={show === "list" ? "hidden" : "visible"}>
+          <Slider ref={ref => (slider = ref)} {...settings}>
+            {serviceSliderItems}
+          </Slider>
 
-      <Slider
-        className={show === "list" ? "hidden" : ""}
-        ref={ref => (slider = ref)}
-        {...settings}
-      >
-        {serviceSliderItems}
-      </Slider>
-      {/* <input
-        style={{
-          position: "absolute",
-          left: "50%",
-          bottom: "90px",
-          transform: "translateX(-50%)"
-        }}
-        onChange={e => slider.slickGoTo(e.target.value)}
-        value={currentSlide}
-        type="range"
-        min={0}
-        max={3}
-      /> */}
+          <SliderControl>
+            <ButtonToList onClick={() => setShow("list")}>Сетка</ButtonToList>
+            <SliderRange
+              ref={ref => (inputRange = ref)}
+              onChange={e => slider.slickGoTo(valueToIndex(e.target.value))}
+              // value={rangeVal(currentSlide)}
+              // length={sliderLength}
+              length={1000}
+            />
+          </SliderControl>
+        </SliderWrapper>
+      </InnerWrapper>
 
-      {/* {show === "list" ? <p>LIST ELEMENTS</p> : <p>SLIDER ELEMENTS</p>}
-
-      <button onClick={() => setShow("slider")}>click</button> */}
       <BtnNext name={props.nextBlockName} toDown={moveSectionDown} />
       <BtnPrev toUp={moveSectionUp} />
     </Wrapper>

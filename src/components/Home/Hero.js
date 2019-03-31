@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import BgWrapper from "../styled/defaultArticleBg";
@@ -8,6 +8,12 @@ import { BtnNext, BtnPrev } from "./NavBtnFullpage";
 import wavesBg from "../../img/wavesBgBlack.png";
 import mramorImg from "../../img/mramor.png";
 import logoImg from "../../img/logoWord.svg";
+
+import arrowDown from '../../img/icon-arrow-down.svg'
+
+// FIXME: test animation library
+import posed, { PoseGroup } from "react-pose";
+import { Breadcrumbs } from "../Nav/styled";
 
 const Wrapper = styled(BgWrapper)`
   display: flex;
@@ -27,7 +33,16 @@ const Wrapper = styled(BgWrapper)`
   }
 `;
 
-const Box = styled.div`
+const BoxAnimation = {
+  visible: {
+    x: 0,
+    transition: { ease: "linear", duration: 1000 },
+    delay: 1500
+  },
+  hidden: { x: "-100%" }
+};
+
+const Box = styled(posed.div(BoxAnimation))`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,18 +70,53 @@ const LogoWord = styled.div`
   }
 `;
 
-const Hero = (props) => {
-  const moveSectionDown = props.fullpage ? props.fullpage.moveSectionDown : null;
+const LikeBreadcrumb = styled(Breadcrumbs)`
+  position: absolute;
+  top: 42px;
+  left: 72px;
+`;
+
+const Arrow = styled(posed.div({
+  size: {
+    height: 0,
+    transition: {
+      duration: 3000,
+      ease: "linear",
+      loop: Infinity
+    }
+  }
+}))`
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-51%);
+  width: 15px;
+  height: 50px;
+  background: url(${arrowDown}) no-repeat center bottom;
+
+`
+
+const Hero = props => {
+  const [play, setPlay] = useState(false);
+  useEffect(() => {
+    setPlay(true);
+  });
+
+  const moveSectionDown = props.fullpage
+    ? props.fullpage.moveSectionDown
+    : null;
 
   const moveSectionUp = props.fullpage ? props.fullpage.moveSectionUp : null;
   return (
     <Wrapper className="section">
-      <Box>
+      <LikeBreadcrumb>ФИТНЕС клуб премиум Класса</LikeBreadcrumb>
+      <Box pose={play ? "visible" : "hidden"}>
         <Water />
         <LogoWord>
           <img src={logoImg} alt="River Club" />
         </LogoWord>
       </Box>
+      <Arrow initialPose="none" pose="size" />
       <BtnNext name={props.nextBlockName} toDown={moveSectionDown} />
     </Wrapper>
   );

@@ -9,6 +9,7 @@ import {
   SliderItemMenuItem,
   SliderItemHtml
 } from "./styled";
+import { DecorateBorderLeft } from "../styled/decorateBorder";
 
 const SliderItem = props => {
   return (
@@ -25,6 +26,7 @@ const SliderItem = props => {
         )}
         <SliderItemHtml>{parser(props.html)}</SliderItemHtml>
       </SliderItemContent>
+      <DecorateBorderLeft />
     </SliderItemWrapper>
   );
 };

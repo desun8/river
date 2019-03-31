@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
+// FIXME: test animation library
+// import posed, { PoseGroup } from "react-pose";
+
 import BgWrapper from "../../styled/defaultArticleBg";
 import linkIcon from "../../../img/icon-link-more.svg";
+
+import { TextBlockAnimation } from "./animation";
 
 export const Wrapper = styled(BgWrapper)`
   display: flex;
@@ -73,6 +78,8 @@ export const ImageBlock = styled.div`
     top: 50%;
     left: 45%;
     transform: translate3d(-50%, -50%, 0);
+    width: 225px;
+    height: 338px;
     z-index: 1;
   }
 
@@ -84,7 +91,8 @@ export const ImageBlock = styled.div`
     z-index: 2;
   }
 `;
-export const TextBlock = styled.div`
+
+export const TextBlock = styled(TextBlockAnimation)`
   flex-basis: 50%;
   max-width: 600px;
   padding: 0 15px;
@@ -115,10 +123,10 @@ export const SliderItemLink = styled.a`
   text-decoration: none;
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
-    right: ${-(14+8)}px;
+    right: ${-(14 + 8)}px;
     transform: translateY(-50%);
     width: 14px;
     height: 14px;

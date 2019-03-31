@@ -12,7 +12,7 @@ const SliderItem = props => {
   return (
     <SliderItemWrapper>
       <ImageBlock>{props.children}</ImageBlock>
-      <TextBlock>
+      <TextBlock pose={props.isPlay ? "visible" : "hidden"}>
         <SliderItemTitle>{props.title}</SliderItemTitle>
         <SliderItemText>{props.text}</SliderItemText>
         <SliderItemLink href={props.url}>Подробнее</SliderItemLink>

@@ -6,10 +6,19 @@ export const SliderWrapper = styled.div`
   width: 100%;
   ${'' /* padding-left: 210px; */}
 
+  .slick-slider {
+    display: flex;
+    justify-content: center;
+  }
+
   .slick-list {
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 210px;
+    padding-right: 210px;
+
+    width: 1300px;
+    overflow: visible;
   }
 
   .slick-slide{

@@ -111,7 +111,7 @@ const Features = props => {
   // параметры слайдера
   const settings = {
     infinite: false,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 3,
     slidesToScroll: 1,
     beforeChange: (oldIndex, newIndex) => {
@@ -146,9 +146,9 @@ const Features = props => {
   };
 
   return (
-    <Wrapper className="section">
+    <Wrapper className="section" onWheel={e => handleScroll(e)}>
       <SliderTitle ref={e => (elmTitle = e)}>Особенности</SliderTitle>
-      <SliderWrapper onWheel={e => handleScroll(e)}>
+      <SliderWrapper>
         <Slider ref={sliderSlick => (slider = sliderSlick)} {...settings}>
           {sliderItems}
         </Slider>

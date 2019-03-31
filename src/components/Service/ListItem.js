@@ -5,7 +5,7 @@ import DecorateBorder from "../styled/decorateBorder";
 
 const ListItem = props => {
   return (
-    <ServiceListItem>
+    <ServiceListItem  onClick={() => props.onClick()}>
       <ListItemImage background={props.bgImg} />
       <ListItemTitle>{props.title}</ListItemTitle>
       <LinkMore href={props.url}>Подробнее</LinkMore>

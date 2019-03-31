@@ -26,5 +26,5 @@ export default (
   // console.log('moveOld: ' + prevSlide)
   // console.log('moveNew: ' + currentSlide)
 
-  elm.style.cssText = `transform: translateX(${newTranslateX}px)`;
+  elm.style.cssText = `transition: transform 800ms linear; transform: translateX(${newTranslateX}px)`;
 };

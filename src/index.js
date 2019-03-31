@@ -6,9 +6,9 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 
 const Root = () => (
-  <BrowserRouter>
+  // <BrowserRouter>
     <App />
-  </BrowserRouter>
+  // {/* </BrowserRouter> */}
 );
 
 ReactDOM.render(<Root />, document.getElementById("root"));

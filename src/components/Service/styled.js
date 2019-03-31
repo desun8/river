@@ -4,20 +4,46 @@ import BgWrapper from "../styled/defaultArticleBg";
 import SliderTitle from "../styled/articleTitle.js";
 
 import btnIcon from "../../img/icon-btn-slider.svg";
+import btnIconGrid from "../../img/icon-btn-grid.svg";
+
+import iconRange from "../../img/icon-range.svg";
+import { listWrapper, sliderWrapper } from "./animation";
 
 export const Wrapper = styled(BgWrapper)`
   position: relative;
   display: flex;
   align-items: center;
 
-  & .hidden {
-    display: none;
-  }
-
   .slick-initialized .slick-slide {
     display: flex;
-    justify-content: center;    
+    justify-content: center;
   }
+`;
+
+export const InnerWrapper = styled.div`
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  align-items: center;
+
+  & .slick-slider {
+    width: 100%;
+  }
+`;
+
+export const ListWrapper = styled(listWrapper)`
+  flex: 1 0 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+export const SliderWrapper = styled(sliderWrapper)`
+  flex: 1 0 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 `;
 
 export const MainTitle = styled(SliderTitle)`
@@ -29,6 +55,8 @@ export const ServiceList = styled.ul`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  max-width: 1200px;
+  width: 100%;
 `;
 
 export const ServiceListItem = styled.li`
@@ -69,6 +97,7 @@ export const ButtonToSlider = styled.button`
   padding-left: 24px;
   font-size: 18px;
   line-height: 20px;
+  font-weight: 300;
   background-color: transparent;
   border: none;
 
@@ -83,9 +112,66 @@ export const ButtonToSlider = styled.button`
     background: url(${btnIcon}) no-repeat center;
     background-size: 18.5px;
   }
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const SliderControl = styled.div`
+  position: absolute;
+  left: 50%;
+  bottom: 52px;
+  transform: translateX(-50%);
+  max-width: 1100px;
+  width: 100%;
+  height: 90px;
+`;
+
+export const ButtonToList = styled(ButtonToSlider)`
+  top: 0;
+  left: 0;
+  bottom: auto;
+  transform: none;
+  z-index: 2;
+
+  &:before {
+    background: url(${btnIconGrid}) no-repeat center;
+    background-size: 16.5px;
+  }
+`;
+
+export const SliderRange = styled.input.attrs(({ length }) => ({
+  type: "range",
+  min: 0,
+  max: length
+}))`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: #444952;
+  border-radius: 3px;
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 88px;
+    height: 76px;
+    border: 0;
+    background: url(${iconRange});
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const SliderItemWrapper = styled.section`
+  position: relative;
   display: flex;
   max-width: 1100px;
   width: 100%;
@@ -102,20 +188,22 @@ export const SliderItemImage = styled.div`
 
   & .bg {
     position: absolute;
-    bottom: 0;
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
   }
 
   & .img {
     position: absolute;
-    top: 45%;
+    ${"" /* top: 45%; */}
+    top: 30%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
   }
 `;
 
 export const SliderItemContent = styled.div`
+  padding-top: 80px;
   display: flex;
   flex-direction: column;
 `;
