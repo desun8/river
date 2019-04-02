@@ -27,7 +27,7 @@ const CircleBorder = styled.div`
   border-right-color: transparent;
   border-bottom-color: transparent;
   transform: rotate(${props => `${props.rotate}deg` || "0deg"});
-  transition: all 700ms ease;
+  transition: all 700ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
 `;
 
 const Logo = props => {

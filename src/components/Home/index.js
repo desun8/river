@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import ReactFullpage from "@fullpage/react-fullpage";
 
-import Hero from "./Hero";
+import Hero from "./Hero/";
 import Features from "./Features/";
 import Special from "./Special";
 import Service from "../Service";

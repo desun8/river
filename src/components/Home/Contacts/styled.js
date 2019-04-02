@@ -34,11 +34,12 @@ export const InnerWrapper = styled.div`
     position: relative;
     width: 420px;
 
-    img {
+    #canvasPixi {
       position: absolute;
       right: 0;
       bottom: 30px;
       width: 388px;
+      height: 540px;
     }
 
     .border {

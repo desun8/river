@@ -91,7 +91,7 @@ const Features = props => {
       sliderIndex,
       oldSliderIndex,
       isLastSlideIndex(sliderIndex, totalSliders),
-      3
+      7
     );
   }, [sliderIndex, oldSliderIndex]);
 
@@ -111,7 +111,8 @@ const Features = props => {
   // параметры слайдера
   const settings = {
     infinite: false,
-    speed: 1000,
+    speed: 2000,
+    easing: "cubic-bezier(0.645, 0.045, 0.355, 1)",
     slidesToShow: 3,
     slidesToScroll: 1,
     beforeChange: (oldIndex, newIndex) => {

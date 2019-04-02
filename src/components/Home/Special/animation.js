@@ -5,8 +5,8 @@ const textAnimtaion = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { ease: "backOut", duration: 1500 },
-    delay: 700
+    transition: { ease: "backOut", duration: 1200 },
+    delay: 200
   },
   hidden: { opacity: 0, x: 100 }
 };
@@ -14,8 +14,8 @@ const textAnimtaion = {
 const firstAnimtaion = {
   visible: {
     opacity: 1,
-    transition: { ease: "linear", duration: 1500 },
-    delay: 300
+    transition: { ease: "linear", duration: 1200 },
+    // delay: 200
   },
   hidden: { opacity: 0 }
 };
@@ -23,8 +23,8 @@ const firstAnimtaion = {
 const secondAnimtaion = {
   visible: {
     opacity: 1,
-    transition: { ease: "linear", duration: 1500 },
-    delay: 1500
+    transition: { ease: "linear", duration: 1000 },
+    delay: 1000
   },
   hidden: { opacity: 0 }
 };
@@ -40,7 +40,7 @@ export const ImageFrontAnimationWiFiLg = styled(
     visible: {
       opacity: 1,
       transition: { ease: "linear", duration: 500 },
-      delay: 2400
+      delay: 1600
     },
     hidden: { opacity: 0 }
   })
@@ -61,7 +61,7 @@ export const ImageFrontAnimationWiFiMd = styled(
     visible: {
       opacity: 1,
       transition: { ease: "linear", duration: 500 },
-      delay: 2000
+      delay: 1300
     },
     hidden: { opacity: 0 }
   })
@@ -82,7 +82,7 @@ export const ImageFrontAnimationWiFiSm = styled(
     visible: {
       opacity: 1,
       transition: { ease: "linear", duration: 500 },
-      delay: 1600
+      delay: 1000
     },
     hidden: { opacity: 0 }
   })

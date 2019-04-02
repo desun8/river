@@ -10,8 +10,8 @@ const SliderTitle = styled.h1`
   color: #fff;
   font-size: 274px;
   font-weight: 700;
-  transition: transform 500ms ease;
   transform: translateX(${(210 / 1440) * 100}%);
+  transition: transform ${props => props.transTime || 2000}ms cubic-bezier(0.645, 0.045, 0.355, 1);
   will-change: transform;
 `;
 
