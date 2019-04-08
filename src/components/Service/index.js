@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Slider from "react-slick";
 
+import debounce from "debounce";
+
 import {
   Wrapper,
   MainTitle,
@@ -178,7 +180,6 @@ const Service = props => {
     <Wrapper className={props.isHome ? "section" : ""}>
       <MainTitle>Услуги</MainTitle>
       <InnerWrapper>
-  
         <ListWrapper pose={show === "list" ? "visible" : "hidden"}>
           <ServiceList>{serviceListItems}</ServiceList>
           <ButtonToSlider onClick={() => setShow("slider")}>
@@ -195,8 +196,12 @@ const Service = props => {
             <ButtonToList onClick={() => setShow("list")}>Сетка</ButtonToList>
             <SliderRange
               ref={ref => (inputRange = ref)}
-              onChange={e => slider.slickGoTo(valueToIndex(e.target.value))}
-              // value={rangeVal(currentSlide)}
+              onChange={e => {
+                if (valueToIndex(e.target.value) !== currentSlide) {
+                  slider.slickGoTo(valueToIndex(e.target.value));
+                }
+              }}
+              // value={indexToValue(currentSlide)}
               // length={sliderLength}
               length={1000}
             />

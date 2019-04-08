@@ -1,61 +1,97 @@
 import * as PIXI from "pixi.js";
+import { TimelineMax, Expo } from "gsap/TweenMax";
 
 import displacementImage from "../../../img/pixijs-clouds.jpg";
 import img from "../../../img/contact-img.jpg";
 
-const PixiElem = () => {
-  const spriteImagesSrc = [img];
+//Aliases Pixi
+const Application = PIXI.Application,
+  loader = PIXI.loader,
+  resources = PIXI.loader.resources,
+  filters = PIXI.filters,
+  Sprite = PIXI.Sprite;
 
-  const renderer = new PIXI.autoDetectRenderer(388, 540, { transparent: true });
-  const stage = new PIXI.Container();
-  const slidesContainer = new PIXI.Container();
-  const displacementSprite = new PIXI.Sprite.fromImage(displacementImage);
-  const displacementFilter = new PIXI.filters.DisplacementFilter(
-    displacementSprite
+const PixiElem = () => {
+  const app = new Application({
+    width: 388,
+    height: 540,
+    antialias: true,
+    transparent: true,
+    resolution: 1
+  }
   );
 
-  stage.addChild(slidesContainer);
+  loader
+    .add("image", img)
+    .add("spriteClouds", displacementImage)
+    .load(setup);
 
-  // Set the filter to stage
-  displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+  function setup() {
+    // add content image
+    const image = new Sprite(
+      resources["image"].texture
+    );
 
-  stage.filters = [displacementFilter];
+    app.stage.addChild(image)
 
-  displacementSprite.anchor.set(0.5);
-  displacementSprite.x = renderer.width / 2;
-  displacementSprite.y = renderer.height / 2;
+    // add sprite and filter
+    const displacementSprite = new Sprite(
+      resources["spriteClouds"].texture
+    );
 
-  displacementSprite.scale.x = 2;
-  displacementSprite.scale.y = 2;
-  stage.addChild(displacementSprite);
+    const displacementFilter = new filters.DisplacementFilter(
+      displacementSprite
+    );
 
-  function loadPixiSprites(sprites) {
-    for (var i = 0; i < sprites.length; i++) {
-      var texture = new PIXI.Texture.fromImage(sprites[i]);
-      var image = new PIXI.Sprite(texture);
+    displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
 
-      image.anchor.set(0.5);
-      image.x = renderer.width / 2;
-      image.y = renderer.height / 2;
+    app.stage.filters = [displacementFilter];
 
-      slidesContainer.addChild(image);
+    displacementSprite.anchor.set(0.5);
+    displacementSprite.x = app.renderer.width / 2;
+    displacementSprite.y = app.renderer.height / 2;
+
+    displacementFilter.scale.x = 0;
+    displacementFilter.scale.y = 0;
+
+    displacementSprite.scale.x = 2;
+    displacementSprite.scale.y = 2;
+
+
+    app.stage.addChild(displacementSprite);
+
+    // add animation for sprite
+    app.ticker.add(delta => move(delta));
+
+    function move(delta) {
+      displacementSprite.x += 1.5 * delta;
+      displacementSprite.y += 0.9 * delta;
     }
+
+    // add animation for filter
+    const tl = new TimelineMax({ paused: true });
+    tl.to(displacementFilter.scale, 2, { x: 30, y: 30, ease: Expo.easeInOut });
+
+    function animationStart() {
+      tl.play()
+    }
+
+    function animationEnd() {
+      tl.reverse()
+    }
+
+    app.stage.interactive = true;
+
+    app.stage.on("mouseover", animationStart)
+    app.stage.on("mouseout", animationEnd)
+
+    // first time renderer animation
+    tl.play();
+    setTimeout(() => tl.reverse(), 2000)
+
   }
 
-  loadPixiSprites(spriteImagesSrc);
-
-  var ticker = new PIXI.ticker.Ticker();
-  ticker.autoStart = true;
-  ticker.add(function(delta) {
-    // Optionally have a default animation
-    displacementSprite.x += 1.5 * delta;
-    displacementSprite.y += 0.9 * delta;
-
-    // Render our stage
-    renderer.render(stage);
-  });
-
-  return renderer.view;
+  return app.view;
 };
 
 export default PixiElem;

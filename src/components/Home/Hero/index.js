@@ -4,11 +4,23 @@ import { BtnNext } from "../NavBtnFullpage";
 
 import logoImg from "../../../img/logoWord.svg";
 import { Wrapper, LikeBreadcrumb, Box, Water, LogoWord, Arrow } from "./styled";
+import TestPaper from "./paper";
 
 const Hero = props => {
   const [play, setPlay] = useState(false);
+  const [isPaper, setIsPaper] = useState(false);
+
+  let canvasRef = null;
+
+
   useEffect(() => {
     setPlay(true);
+
+    if (canvasRef !== null && !isPaper) {
+      setIsPaper(true);
+      TestPaper(canvasRef)
+      // setTimeout(() => TestPaper(canvasRef), 2000)
+    }
   });
 
   const moveSectionDown = props.fullpage
@@ -19,7 +31,9 @@ const Hero = props => {
     <Wrapper className="section">
       <LikeBreadcrumb>ФИТНЕС клуб премиум Класса</LikeBreadcrumb>
       <Box pose={play ? "visible" : "hidden"}>
-        <Water />
+        <Water>
+          <canvas ref={ref => canvasRef = ref} id="heroCanvas" width="600" height="280"></canvas>
+        </Water>
         <LogoWord>
           <img src={logoImg} alt="River Club" />
         </LogoWord>

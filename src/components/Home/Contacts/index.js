@@ -6,27 +6,37 @@ import { MainTitle } from "../../Service/styled";
 import img from "../../../img/contact-img.jpg";
 import PixiElem from "./pixi";
 
+function checkVisible(elm) {
+  var rect = elm.getBoundingClientRect();
+  var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+  return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+}
+
 const Contacts = props => {
   const [isRender, setIsRender] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+
+
   useEffect(() => {
-    if (canvas !== null && !isRender) {
+    if (canvasRef !== null && !isRender && checkVisible(wrapperRef)) {
       setIsRender(true);
-      canvas.appendChild(PixiElem());
+      canvasRef.appendChild(PixiElem());
     }
   });
 
-  // console.log(PixiElem());
-  let canvas = null;
+  let wrapperRef = null
+  let canvasRef = null;
 
   return (
-    <Wrapper className="section">
+    <Wrapper className="section" ref={ref => wrapperRef = ref}>
       <MainTitle>Контакты</MainTitle>
       <CenterBlock>
         <InnerWrapper>
           <div className="img">
-            <div id="canvasPixi" ref={ref => (canvas = ref)}>
+            {/* <CanvasPixi render={isRender} /> */}
+            <div id="canvasPixi" ref={ref => (canvasRef = ref)}>
               {/* {PixiElem().map(elm => elm)} */}
-              {/* <img src={img} alt="" /> */}
+              <img src={img} alt="" style={isRender ? { display: "none" } : {}} />
             </div>
             <div className="border" />
           </div>

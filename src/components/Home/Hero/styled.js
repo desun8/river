@@ -41,9 +41,18 @@ export const Box = styled(BoxAnimation)`
 `;
 
 export const Water = styled(WaterAnimation)`
+  position: relative;
   width: 720px;
   height: 287px;
   background: url(${mramorImg}) no-repeat bottom right;
+  overflow: hidden;
+
+  #heroCanvas {
+    position: absolute;
+    bottom: 0;
+    right: -60px;
+    opacity: 0.6;
+  }
 `;
 
 export const LogoWord = styled(LogoWordAnimation)`

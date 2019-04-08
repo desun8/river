@@ -5,6 +5,8 @@
   "homepage": "https://epchela.github.io/river/",
   "dependencies": {
     "@fullpage/react-fullpage": "^0.1.13",
+    "@pixi/filter-drop-shadow": "^2.7.0",
+    "debounce": "^1.2.0",
     "eslint-config-react-app": "^3.0.8",
     "eslint-plugin-flowtype": "^3.4.2",
     "eslint-plugin-import": "^2.16.0",
@@ -12,7 +14,9 @@
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.5.0",
     "gh-pages": "^2.0.1",
+    "gsap": "^2.1.2",
     "html-react-parser": "^0.6.2",
+    "paper": "^0.12.0",
     "pixi.js": "^4.8.7",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
