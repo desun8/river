@@ -1,19 +1,19 @@
 import Paper from "paper";
 import { TweenMax, Bounce } from "gsap";
 
-const TestPaper = (canvas) => {
-  var paper = new Paper.PaperScope();
+const PaperLiquide = (canvas) => {
+  const paper = new Paper.PaperScope();
   paper.setup(canvas);
 
-  var width, height, center;
-  var points = 8;
-  var smooth = true;
-  var path = new paper.Path();
-  var view = paper.view;
-  var tool = new paper.Tool();
-  // console.log(view);
-  var mousePos = view.center;
-  var pathHeight = mousePos.y;
+  const path = new paper.Path();
+  const view = paper.view;
+  const tool = new paper.Tool();
+  const points = 6;
+
+  let width, height, center;
+  let mousePos = view.center;
+  let pathHeight = mousePos.y;
+  let smooth = true;
 
   path.fillColor = {
     gradient: {
@@ -22,6 +22,7 @@ const TestPaper = (canvas) => {
     origin: view.bounds.topCenter,
     destination: view.bounds.bottomCenter
   };
+
   initializePath();
 
   function initializePath() {
@@ -30,29 +31,25 @@ const TestPaper = (canvas) => {
     height = view.size.height / 2;
     path.segments = [];
     path.add(view.bounds.bottomLeft);
-    for (var i = 1; i < points; i++) {
-      var point = new paper.Point(width / points * i, center.y);
+    for (let i = 1; i < points; i++) {
+      const point = new paper.Point(width / points * i, center.y);
       path.add(point);
     }
     path.add(view.bounds.bottomRight);
-
-    pathHeight += (center.y - mousePos.y - pathHeight) / 10;
-    for (var i = 1; i < points; i++) {
-      var sinSeed = (i + i % 10) * 100;
-      var sinHeight = Math.sin(sinSeed / 200) * pathHeight;
-      var yPos = Math.sin(sinSeed / 100) * sinHeight + height;
-      // path.segments[i].point.y = yPos;
-      TweenMax.to(path.segments[i].point, 0.5, { y: yPos, ease: Bounce.easeIn })
-    }
-    // path.fullySelected = true;
   }
 
+  let isStart = false;
+
   view.onFrame = function (event) {
-    pathHeight += (center.y - mousePos.y - pathHeight) / 10;
-    for (var i = 1; i < points; i++) {
-      var sinSeed = event.count + (i + i % 10) * 100;
-      var sinHeight = Math.sin(sinSeed / 200) * pathHeight;
-      var yPos = Math.sin(sinSeed / 100) * sinHeight + height;
+    if (!isStart) {
+      pathHeight += (center.y - mousePos.y * event.delta - pathHeight) / 10;
+    } else {
+      pathHeight += (center.y - mousePos.y - pathHeight) / 10;
+    }
+    for (let i = 1; i < points; i++) {
+      const sinSeed = event.count + (i + i % 10) * 100;
+      const sinHeight = Math.sin(sinSeed / 200) * pathHeight;
+      const yPos = Math.sin(sinSeed / 100) * sinHeight + height;
       // path.segments[i].point.y = yPos;
       TweenMax.to(path.segments[i].point, 0.5, { y: yPos, ease: Bounce.easeIn })
     }
@@ -61,29 +58,13 @@ const TestPaper = (canvas) => {
   }
 
   tool.onMouseMove = function (event) {
+    isStart = true;
     mousePos = event.point;
   }
 
-  // tool.onMouseDown = function (event) {
-  //   path.fillColor = 'red';
-  //   smooth = !smooth;
-  //   if (!smooth) {
-  //     // If smooth has been turned off, we need to reset
-  //     // the handles of the path:
-  //     for (var i = 0, l = path.segments.length; i < l; i++) {
-  //       var segment = path.segments[i];
-  //       segment.handleIn = segment.handleOut = null;
-  //     }
-  //   }
-  // }
-
-  // // Reposition the path whenever the window is resized:
   view.onResize = function (event) {
     initializePath();
   }
-
-  console.log(view);
-  console.log(tool);
 }
 
-export default TestPaper;
+export default PaperLiquide;

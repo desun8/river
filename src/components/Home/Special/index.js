@@ -3,7 +3,16 @@ import Slider from "react-slick";
 
 import SliderItem from "./SliderItem";
 import { CustomDots, Paging } from "./CustomSliderDots";
-import { Wrapper } from "./styled";
+import {
+  Wrapper,
+  ImageBgAnimation,
+  ImageFrontAnimation,
+  ImageFrontAnimationWiFiLg,
+  ImageFrontAnimationWiFiMd,
+  ImageFrontAnimationWiFiSm,
+  IconAnimation,
+  ImageBraceAnimation
+} from "./styled";
 import SliderTitle from "../../styled/articleTitle.js";
 
 import { BtnNext, BtnPrev } from "../NavBtnFullpage";
@@ -11,13 +20,6 @@ import { BtnNext, BtnPrev } from "../NavBtnFullpage";
 import moveTitle from "../../utils/moveTitle";
 
 import SliderImages from "./images";
-import {
-  ImageBgAnimation,
-  ImageFrontAnimation,
-  ImageFrontAnimationWiFiLg,
-  ImageFrontAnimationWiFiMd,
-  ImageFrontAnimationWiFiSm
-} from "./animation";
 
 const data = [
   {
@@ -102,6 +104,7 @@ const data = [
 const Service = props => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [prevSlide, setPrevSlide] = useState(0);
+  const [braceAnimation, setBraceAnimation] = useState(1);
   const [animationStatus, setAnimationStatus] = useState([
     false,
     false,
@@ -146,6 +149,19 @@ const Service = props => {
     beforeChange: (oldIndex, newIndex) => {
       setPrevSlide(oldIndex);
       setCurrentSlide(newIndex);
+
+      switch (newIndex) {
+        case 0:
+          setBraceAnimation(1);
+          break;
+        case 1:
+          setBraceAnimation(2);
+          break;
+
+        default:
+          setBraceAnimation(null);
+          break;
+      }
     },
     afterChange: newIndex => {
       setAnimationStatus(
@@ -187,10 +203,97 @@ const Service = props => {
       <SliderTitle ref={ref => (elmTitle = ref)}>
         Индивидуально для вас
       </SliderTitle>
+
+      <div className="braceContainer">
+        <ImageBraceAnimation
+          pose={
+            braceAnimation === 1
+              ? "visible"
+              : braceAnimation === 2
+              ? "resize"
+              : "hidden"
+          }
+          className="imgSlide1"
+          src={SliderImages[0].img}
+          alt=""
+        />
+      </div>
+
       <Slider ref={ref => (slider = ref)} {...settings}>
         {data.map((elm, index) => {
           switch (index) {
             case 0:
+              return (
+                <SliderItem
+                  key={elm.id}
+                  isPlay={
+                    index === 0 ? props.isCurrent : animationStatus[index - 1]
+                  }
+                  {...elm}
+                >
+                  <ImageBgAnimation
+                    pose={
+                      index === 0 && props.isCurrent
+                        ? "visible"
+                        : animationStatus[index - 1]
+                        ? "visible"
+                        : "hidden"
+                    }
+                    className="bgImg"
+                    src={SliderImages[index].bg}
+                    alt=""
+                  />
+                  {/* <ImageFrontAnimation
+                    pose={
+                      index === 0 && props.isCurrent
+                        ? "visible"
+                        : animationStatus[index - 1]
+                        ? "visible"
+                        : "hidden"
+                    }
+                    className="imgSlide1"
+                    src={SliderImages[index].img}
+                    alt=""
+                  /> */}
+                </SliderItem>
+              );
+
+            case 1:
+              return (
+                <SliderItem
+                  isPlay={animationStatus[index - 1]}
+                  key={elm.id}
+                  {...elm}
+                >
+                  {/* <ImageBgAnimation
+                    pose={animationStatus[index - 1] ? "visible" : "hidden"}
+                    className="imgSlide2-1"
+                    src={SliderImages[index].img1}
+                    alt=""
+                  /> */}
+                  <div className="imgSlide2-2">
+                    <ImageFrontAnimationWiFiLg
+                      pose={animationStatus[index - 1] ? "visible" : "hidden"}
+                      bgImg={SliderImages[index].img2}
+                    />
+                    <ImageFrontAnimationWiFiMd
+                      pose={animationStatus[index - 1] ? "visible" : "hidden"}
+                      bgImg={SliderImages[index].img2}
+                    />
+                    <ImageFrontAnimationWiFiSm
+                      pose={animationStatus[index - 1] ? "visible" : "hidden"}
+                      bgImg={SliderImages[index].img2}
+                    />
+                  </div>
+                  <ImageBgAnimation
+                    pose={animationStatus[index - 1] ? "visible" : "hidden"}
+                    className="imgSlide2-3"
+                    src={SliderImages[index].img3}
+                    alt=""
+                  />
+                </SliderItem>
+              );
+
             case 2:
               return (
                 <SliderItem
@@ -220,49 +323,48 @@ const Service = props => {
                         ? "visible"
                         : "hidden"
                     }
-                    className={index === 0 ? "imgSlide1" : "imgSlide3"}
+                    className="imgSlide3"
                     src={SliderImages[index].img}
                     alt=""
                   />
+                  <IconAnimation
+                    pose={
+                      index === 0 && props.isCurrent
+                        ? "visible"
+                        : animationStatus[index - 1]
+                        ? "visible"
+                        : "hidden"
+                    }
+                    bgImg={SliderImages[index].icon[0]}
+                    top="22.5%"
+                    left="15%"
+                  />
+                  <IconAnimation
+                    pose={
+                      index === 0 && props.isCurrent
+                        ? "visible"
+                        : animationStatus[index - 1]
+                        ? "visible"
+                        : "hidden"
+                    }
+                    bgImg={SliderImages[index].icon[1]}
+                    top="51.5%"
+                    left="40.5%"
+                  />
+                  <IconAnimation
+                    pose={
+                      index === 0 && props.isCurrent
+                        ? "visible"
+                        : animationStatus[index - 1]
+                        ? "visible"
+                        : "hidden"
+                    }
+                    bgImg={SliderImages[index].icon[2]}
+                    top="3.5%"
+                    left="69%"
+                  />
                 </SliderItem>
               );
-
-            case 1:
-              return (
-                <SliderItem
-                  isPlay={animationStatus[index - 1]}
-                  key={elm.id}
-                  {...elm}
-                >
-                  <ImageBgAnimation
-                    pose={animationStatus[index - 1] ? "visible" : "hidden"}
-                    className="imgSlide2-1"
-                    src={SliderImages[index].img1}
-                    alt=""
-                  />
-                  <div className="imgSlide2-2">
-                    <ImageFrontAnimationWiFiLg
-                      pose={animationStatus[index - 1] ? "visible" : "hidden"}
-                      bgImg={SliderImages[index].img2}
-                    />
-                    <ImageFrontAnimationWiFiMd
-                      pose={animationStatus[index - 1] ? "visible" : "hidden"}
-                      bgImg={SliderImages[index].img2}
-                    />
-                    <ImageFrontAnimationWiFiSm
-                      pose={animationStatus[index - 1] ? "visible" : "hidden"}
-                      bgImg={SliderImages[index].img2}
-                    />
-                  </div>
-                  <ImageBgAnimation
-                    pose={animationStatus[index - 1] ? "visible" : "hidden"}
-                    className="imgSlide2-3"
-                    src={SliderImages[index].img3}
-                    alt=""
-                  />
-                </SliderItem>
-              );
-
             case 3:
             case 4:
               return (
@@ -281,7 +383,7 @@ const Service = props => {
               );
 
             default:
-              break;
+              return -1;
           }
         })}
       </Slider>

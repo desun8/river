@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import posed from "react-pose";
 
 // FIXME: test animation library
 // import posed, { PoseGroup } from "react-pose";
@@ -6,7 +7,16 @@ import styled from "styled-components";
 import BgWrapper from "../../styled/defaultArticleBg";
 import linkIcon from "../../../img/icon-link-more.svg";
 
-import { TextBlockAnimation } from "./animation";
+import {
+  textAnimtaion,
+  firstAnimtaion,
+  secondAnimtaion,
+  animationWiFiLg,
+  animationWiFiMd,
+  animationWiFiSm,
+  iconAnimation,
+  braceAnimation
+} from "./animation";
 
 export const Wrapper = styled(BgWrapper)`
   display: flex;
@@ -25,6 +35,17 @@ export const Wrapper = styled(BgWrapper)`
   .slick-slide > div {
     display: flex;
     justify-content: center;
+  }
+
+  .braceContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 100%;
+    max-width: 1300px;
+    height: 100%;
+    z-index: 5;
   }
 `;
 
@@ -92,7 +113,7 @@ export const ImageBlock = styled.div`
   }
 `;
 
-export const TextBlock = styled(TextBlockAnimation)`
+export const TextBlock = styled(posed.div(textAnimtaion))`
   flex-basis: 50%;
   max-width: 600px;
   padding: 0 15px;
@@ -133,4 +154,63 @@ export const SliderItemLink = styled.a`
     background: url(${linkIcon}) no-repeat;
     background-size: contain;
   }
+`;
+
+export const ImageBgAnimation = posed.img(firstAnimtaion);
+export const ImageFrontAnimation = posed.img(secondAnimtaion);
+
+export const ImageBraceAnimation = styled(posed.img(braceAnimation))`
+  position: absolute;
+  top: 28%;
+  left: 12%;
+  width: 300px;
+  z-index: 5;
+`;
+
+export const ImageFrontAnimationWiFiLg = styled(posed.div(animationWiFiLg))`
+  width: 125px;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate3d(0, -50%, 0);
+  background: url(${props => props.bgImg}) no-repeat center;
+  background-size: 225px;
+  background-position-x: 0px;
+`;
+
+export const ImageFrontAnimationWiFiMd = styled(posed.div(animationWiFiMd))`
+  width: 65px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 65%;
+  transform: translate3d(-50%, -50%, 0);
+  background: url(${props => props.bgImg}) no-repeat center;
+  background-size: 225px;
+  background-position-x: -120px;
+`;
+
+export const ImageFrontAnimationWiFiSm = styled(posed.div(animationWiFiSm))`
+  width: 50px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate3d(0, -50%, 0);
+  background: url(${props => props.bgImg}) no-repeat center;
+  background-size: 225px;
+  background-position-x: -180px;
+`;
+
+export const IconAnimation = styled(posed.i(iconAnimation))`
+  display: block;
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  top: ${props => props.top || "0"};
+  left: ${props => props.left || "0"};
+  ${"" /* transform: translate3d(0, -50%, 0); */}
+  background: url(${props => props.bgImg}) no-repeat center;
+  background-size: contain;
 `;

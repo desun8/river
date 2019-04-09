@@ -4,24 +4,22 @@ import { BtnNext } from "../NavBtnFullpage";
 
 import logoImg from "../../../img/logoWord.svg";
 import { Wrapper, LikeBreadcrumb, Box, Water, LogoWord, Arrow } from "./styled";
-import TestPaper from "./paper";
+import PaperLiquide from "./paper";
 
 const Hero = props => {
   const [play, setPlay] = useState(false);
   const [isPaper, setIsPaper] = useState(false);
 
-  let canvasRef = null;
-
-
   useEffect(() => {
     setPlay(true);
-
+    
     if (canvasRef !== null && !isPaper) {
       setIsPaper(true);
-      TestPaper(canvasRef)
-      // setTimeout(() => TestPaper(canvasRef), 2000)
+      PaperLiquide(canvasRef)
     }
   });
+
+  let canvasRef = null;
 
   const moveSectionDown = props.fullpage
     ? props.fullpage.moveSectionDown
