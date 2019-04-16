@@ -1,14 +1,14 @@
 {
   "main.css": "/river/static/css/main.4efdf3ed.chunk.css",
-  "main.js": "/river/static/js/main.6d2c56d4.chunk.js",
-  "main.js.map": "/river/static/js/main.6d2c56d4.chunk.js.map",
+  "main.js": "/river/static/js/main.37452e42.chunk.js",
+  "main.js.map": "/river/static/js/main.37452e42.chunk.js.map",
   "runtime~main.js": "/river/static/js/runtime~main.ca002233.js",
   "runtime~main.js.map": "/river/static/js/runtime~main.ca002233.js.map",
   "static/css/2.b3fb5d69.chunk.css": "/river/static/css/2.b3fb5d69.chunk.css",
-  "static/js/2.00592d47.chunk.js": "/river/static/js/2.00592d47.chunk.js",
-  "static/js/2.00592d47.chunk.js.map": "/river/static/js/2.00592d47.chunk.js.map",
+  "static/js/2.46f6c642.chunk.js": "/river/static/js/2.46f6c642.chunk.js",
+  "static/js/2.46f6c642.chunk.js.map": "/river/static/js/2.46f6c642.chunk.js.map",
   "index.html": "/river/index.html",
-  "precache-manifest.8aa988d2b05ffd493491a164bd4059c9.js": "/river/precache-manifest.8aa988d2b05ffd493491a164bd4059c9.js",
+  "precache-manifest.a5adfec8f5c31d82d0465c1a1d08be2e.js": "/river/precache-manifest.a5adfec8f5c31d82d0465c1a1d08be2e.js",
   "service-worker.js": "/river/service-worker.js",
   "static/css/2.b3fb5d69.chunk.css.map": "/river/static/css/2.b3fb5d69.chunk.css.map",
   "static/css/main.4efdf3ed.chunk.css.map": "/river/static/css/main.4efdf3ed.chunk.css.map",
@@ -35,6 +35,7 @@
   "static/media/noisy-texture.png": "/river/static/media/noisy-texture.c8c3a4a3.png",
   "static/media/pixijs-clouds.jpg": "/river/static/media/pixijs-clouds.7a69be1f.jpg",
   "static/media/points-texture.png": "/river/static/media/points-texture.0ed357d5.png",
+  "static/media/preloaderLogo.svg": "/river/static/media/preloaderLogo.530d2a96.svg",
   "static/media/raleway.css": "/river/static/media/ralewaythinitalic.d52a46fe.woff2",
   "static/media/service-cafe-bg.png": "/river/static/media/service-cafe-bg.a1dd5689.png",
   "static/media/service-cafe-img.png": "/river/static/media/service-cafe-img.fe87dfba.png",
@@ -58,5 +59,6 @@
   "static/media/special-pulse.png": "/river/static/media/special-pulse.86acc91e.png",
   "static/media/special-wifi.png": "/river/static/media/special-wifi.2a187ee4.png",
   "static/media/wa-logo.svg": "/river/static/media/wa-logo.8fabf765.svg",
-  "static/media/wavesBgBlack.png": "/river/static/media/wavesBgBlack.bfdb98af.png"
+  "static/media/wavesBgBlack.png": "/river/static/media/wavesBgBlack.bfdb98af.png",
+  "static/media/wavesBgWhite.png": "/river/static/media/wavesBgWhite.bfdb98af.png"
 }
