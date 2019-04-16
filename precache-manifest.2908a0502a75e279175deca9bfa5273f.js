@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "a0c14304ded775d91ed8",
+    "revision": "56dc86e96bc932284035",
     "url": "/river/static/css/main.4efdf3ed.chunk.css"
   },
   {
-    "revision": "a0c14304ded775d91ed8",
-    "url": "/river/static/js/main.37452e42.chunk.js"
+    "revision": "56dc86e96bc932284035",
+    "url": "/river/static/js/main.7063472b.chunk.js"
   },
   {
     "revision": "91603d566aec68d84843",
@@ -120,12 +120,12 @@ self.__precacheManifest = [
     "url": "/river/static/media/ralewayregular.3dce8d23.woff2"
   },
   {
-    "revision": "68b0f326ff690e24c2d009a978005c37",
-    "url": "/river/static/media/ralewaymedium.68b0f326.woff2"
-  },
-  {
     "revision": "489312a766ded47c7c9ed4413a8f01ff",
     "url": "/river/static/media/ralewayitalic.489312a7.woff"
+  },
+  {
+    "revision": "68b0f326ff690e24c2d009a978005c37",
+    "url": "/river/static/media/ralewaymedium.68b0f326.woff2"
   },
   {
     "revision": "41ae8b2461f253ba83bd2ff60ba10335",
@@ -204,20 +204,20 @@ self.__precacheManifest = [
     "url": "/river/static/media/ralewaybold.040ac81c.woff"
   },
   {
-    "revision": "b913b707374cd16a9187513e7cc833a1",
-    "url": "/river/static/media/ralewaybolditalic.b913b707.ttf"
-  },
-  {
     "revision": "dc10167478adf5ec65ed2c79b9e62f3d",
     "url": "/river/static/media/ralewayextrabold.dc101674.woff"
   },
   {
-    "revision": "bb189f6e46b7b1b282ae48760c4ec2fe",
-    "url": "/river/static/media/ralewayblack.bb189f6e.woff"
+    "revision": "b913b707374cd16a9187513e7cc833a1",
+    "url": "/river/static/media/ralewaybolditalic.b913b707.ttf"
   },
   {
     "revision": "4504c064a898bea3d65d39fba6528826",
     "url": "/river/static/media/ralewayextrabolditalic.4504c064.ttf"
+  },
+  {
+    "revision": "bb189f6e46b7b1b282ae48760c4ec2fe",
+    "url": "/river/static/media/ralewayblack.bb189f6e.woff"
   },
   {
     "revision": "3e035d5d0463157440ebb2b96dfd9cbf",
@@ -440,7 +440,7 @@ self.__precacheManifest = [
     "url": "/river/static/media/slick.f97e3bbf.svg"
   },
   {
-    "revision": "05dae3fb589ccd11d0d8fd1e6242e55d",
+    "revision": "cc4ad9f29a04f892c8b446f569b647b5",
     "url": "/river/index.html"
   }
 ];
