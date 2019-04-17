@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "2afe73331bca965fc3aa",
+    "revision": "67a2cfd4ac8db1457ffe",
     "url": "/river/static/css/main.4efdf3ed.chunk.css"
   },
   {
-    "revision": "2afe73331bca965fc3aa",
-    "url": "/river/static/js/main.dc36f8dd.chunk.js"
+    "revision": "67a2cfd4ac8db1457ffe",
+    "url": "/river/static/js/main.102d608c.chunk.js"
   },
   {
     "revision": "91603d566aec68d84843",
@@ -104,12 +104,12 @@ self.__precacheManifest = [
     "url": "/river/static/media/ralewayextralight.1deb8f23.woff2"
   },
   {
-    "revision": "bb233d8bb3eb944ef21dadf822647462",
-    "url": "/river/static/media/ralewayextralightitalic.bb233d8b.woff"
-  },
-  {
     "revision": "2dcb032a6dd7da64da9d8ec4a9ec20f3",
     "url": "/river/static/media/ralewaylight.2dcb032a.woff2"
+  },
+  {
+    "revision": "bb233d8bb3eb944ef21dadf822647462",
+    "url": "/river/static/media/ralewayextralightitalic.bb233d8b.woff"
   },
   {
     "revision": "9f227eeb35c68c4e39c0b377341d4841",
@@ -168,12 +168,12 @@ self.__precacheManifest = [
     "url": "/river/static/media/ralewaythin.a5edf502.woff"
   },
   {
-    "revision": "d59f13fab323f088bd98b23122a5acfe",
-    "url": "/river/static/media/ralewayextralight.d59f13fa.woff"
-  },
-  {
     "revision": "22493567e056a81a78d717672b4f22ea",
     "url": "/river/static/media/ralewaythinitalic.22493567.ttf"
+  },
+  {
+    "revision": "d59f13fab323f088bd98b23122a5acfe",
+    "url": "/river/static/media/ralewayextralight.d59f13fa.woff"
   },
   {
     "revision": "2af928e93fbd63ee00536f71b7c9d17f",
@@ -420,10 +420,6 @@ self.__precacheManifest = [
     "url": "/river/static/media/grey_bg.5926bb9b.png"
   },
   {
-    "revision": "ced611daf7709cc778da928fec876475",
-    "url": "/river/static/media/slick.ced611da.eot"
-  },
-  {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
     "url": "/river/static/media/slick.d41f55a7.ttf"
   },
@@ -436,11 +432,15 @@ self.__precacheManifest = [
     "url": "/river/static/media/slick.f97e3bbf.svg"
   },
   {
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/river/static/media/slick.ced611da.eot"
+  },
+  {
     "revision": "530d2a967ed5259fa42e6984711510e4",
     "url": "/river/static/media/preloaderLogo.530d2a96.svg"
   },
   {
-    "revision": "7c4f592e66a236ec5e8461b525b0f336",
+    "revision": "e40c4f1470903ae3bd5d185332a15bfc",
     "url": "/river/index.html"
   }
 ];
